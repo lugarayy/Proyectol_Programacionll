@@ -3,4 +3,7 @@ project(Proyectol_Programacionll)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Proyectol_Programacionll main.cpp)
+add_executable(Proyectol_Programacionll main.cpp
+        main.cpp
+        GeneradorReportes.cpp
+        GeneradorReportes.h)
