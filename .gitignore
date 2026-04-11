@@ -1,0 +1,16 @@
+# CLion
+.idea/
+cmake-build-debug/
+cmake-build-release/
+
+# Compilados
+*.o
+*.exe
+*.out
+ProyectolProgramacionII
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
