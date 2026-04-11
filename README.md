@@ -299,4 +299,80 @@ Riesgo global: ALTO
 ## 16. Criterio Global de Aprobación
 Puntaje total del proyecto: **100 puntos**.
 
-Para aprobar, no basta con obtener puntos parciales: también debe evidenciarse cumplimiento técnico esencial del proyecto.
+Para aprobar, no basta con obtener puntos parciales: también debe evidenciarse
+cumplimiento técnico esencial del proyecto.
+
+
+Basándome en todo lo que me dijeron, aquí queda el plan actualizado:
+
+---
+
+## 🏗️ Arquitectura final del proyecto
+
+```
+Equipo (abstracta)
+├── EquipoCritico
+└── EquipoEstandar
+
+IncidenciaBase (abstracta)  ← Patrón Decorator
+├── IncidenciaSeveridadAlta
+├── IncidenciaSeveridadMedia
+└── IncidenciaConBloqueo     ← pone equipo inactivo
+
+EleccionTecnica              ← Strategy, recibe vector<Equipo*>
+OrdenamientoDiario           ← MergeSort/QuickSort propio
+Simulador                    ← ciclo de 30 días
+GeneradorReportes            ← crea carpetas Simulacion_X
+Excepciones personalizadas
+```
+
+---
+
+## 👥 División Persona A y Persona B
+
+### 🟦 Persona A — Dominio (las clases del mundo real)
+
+| Semana | Tarea |
+|---|---|
+| Sem 1 | Clase `Equipo` abstracta + `EquipoCritico` + `EquipoEstandar` con atributos `criticidad`, `estado`, `tiempo_inactivo` y método `getPrioridad()` |
+| Sem 1 | `IncidenciaBase` abstracta + decoradores `IncidenciaSeveridadAlta`, `IncidenciaSeveridadMedia`, `IncidenciaConBloqueo` |
+| Sem 2 | Clase `EleccionTecnica` — recibe `vector<Equipo*>`, llama `getPrioridad()` y selecciona los 3 más urgentes |
+| Sem 2 | Lógica de degradación diaria (fija + aleatoria) y lógica de mantenimiento (reset parcial) |
+| Sem 3 | Documento técnico + datos de prueba (100 equipos, 300 incidencias) |
+
+---
+
+### 🟩 Persona B — Motor (algoritmos, simulación y salida)
+
+| Semana | Tarea |
+|---|---|
+| Sem 1 | Excepciones personalizadas: `ArchivoInvalidoException`, `FormatoInvalidoException`, `OperacionInconsistenteException` |
+| Sem 1 | Lector del archivo `equipos.txt` con validación + fallback a datos quemados |
+| Sem 2 | Clase `OrdenamientoDiario` con MergeSort propio sobre `vector<Equipo*>` + búsqueda binaria |
+| Sem 2 | Clase `Simulador` — ciclo de 30 días, llama degradación → prioridad → ordenamiento → EleccionTecnica → mantenimiento |
+| Sem 3 | Clase `GeneradorReportes` — crea carpetas `Simulacion_X`, genera txt por día + reporte acumulado |
+
+---
+
+## 📅 Fechas clave
+
+| Fecha | Meta |
+|---|---|
+| 13 abril | Clases base funcionando y compilando |
+| 20 abril | Primera simulación corriendo aunque sea básica |
+| 27 abril | Simulación completa + reportes generados |
+| 28-30 abril | Pruebas, documento técnico, evidencia |
+| 2 mayo | Entrega 🎯 |
+
+---
+
+## ⚠️ Puntos de coordinación entre ambos
+
+Estos puntos los deben hacer **juntos** para evitar conflictos:
+- El `CMakeLists.txt` — cada vez que alguien agrega un `.cpp` nuevo lo actualiza
+- La dependencia mutua `Equipo` ↔ `Incidencia` con forward declaration
+- El `main.cpp` — lo tocan al final cuando todo está integrado
+
+---
+
+¿Por cuál clase quieren empezar primero, `Equipo` o `IncidenciaBase`?
