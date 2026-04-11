@@ -6,4 +6,10 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(Proyectol_Programacionll main.cpp
         main.cpp
         GeneradorReportes.cpp
-        GeneradorReportes.h)
+        GeneradorReportes.h
+        Equipo.cpp
+        Equipo.h
+        EquipoCritico.cpp
+        EquipoCritico.h
+        EquipoEstandar.cpp
+        EquipoEstandar.h)

@@ -364,15 +364,4 @@ Excepciones personalizadas
 | 28-30 abril | Pruebas, documento técnico, evidencia |
 | 2 mayo | Entrega 🎯 |
 
----
 
-## ⚠️ Puntos de coordinación entre ambos
-
-Estos puntos los deben hacer **juntos** para evitar conflictos:
-- El `CMakeLists.txt` — cada vez que alguien agrega un `.cpp` nuevo lo actualiza
-- La dependencia mutua `Equipo` ↔ `Incidencia` con forward declaration
-- El `main.cpp` — lo tocan al final cuando todo está integrado
-
----
-
-¿Por cuál clase quieren empezar primero, `Equipo` o `IncidenciaBase`?
