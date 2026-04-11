@@ -3,3 +3,5 @@
 //
 
 #include "FormatoInvalidoException.h"
+
+FormatoInvalidoException::FormatoInvalidoException() : InvalidoException(msj) {}

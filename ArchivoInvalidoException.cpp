@@ -3,3 +3,5 @@
 //
 
 #include "ArchivoInvalidoException.h"
+
+ArchivoInvalidoException::ArchivoInvalidoException() : InvalidoException(msj) {}

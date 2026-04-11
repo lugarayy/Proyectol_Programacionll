@@ -4,6 +4,8 @@
 
 #ifndef PROYECTOL_PROGRAMACIONLL_SIMULADOR_H
 #define PROYECTOL_PROGRAMACIONLL_SIMULADOR_H
+#include <iostream>
+#include "EleccionTecnica.h"
 
 
 class Simulador {

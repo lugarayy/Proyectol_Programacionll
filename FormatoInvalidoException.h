@@ -4,9 +4,14 @@
 
 #ifndef PROYECTOL_PROGRAMACIONLL_FORMATOINVALIDOEXCEPTION_H
 #define PROYECTOL_PROGRAMACIONLL_FORMATOINVALIDOEXCEPTION_H
+#include "InvalidoException.h"
+#include <string>
 
-
-class FormatoInvalidoException {
+class FormatoInvalidoException : public InvalidoException {
+private:
+    string msj= "Formato Invalido";
+public:
+    FormatoInvalidoException();
 };
 
 

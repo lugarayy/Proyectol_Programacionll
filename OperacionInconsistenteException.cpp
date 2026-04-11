@@ -3,3 +3,5 @@
 //
 
 #include "OperacionInconsistenteException.h"
+
+OperacionInconsistenteException::OperacionInconsistenteException() : InvalidoException(msj) {}

@@ -22,4 +22,6 @@ add_executable(Proyectol_Programacionll
         FormatoInvalidoException.cpp
         FormatoInvalidoException.h
         OperacionInconsistenteException.cpp
-        OperacionInconsistenteException.h)
+        OperacionInconsistenteException.h
+        InvalidoException.cpp
+        InvalidoException.h)
