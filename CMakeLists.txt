@@ -3,7 +3,7 @@ project(Proyectol_Programacionll)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Proyectol_Programacionll main.cpp
+add_executable(Proyectol_Programacionll
         main.cpp
         GeneradorReportes.cpp
         GeneradorReportes.h
@@ -12,4 +12,14 @@ add_executable(Proyectol_Programacionll main.cpp
         EquipoCritico.cpp
         EquipoCritico.h
         EquipoEstandar.cpp
-        EquipoEstandar.h)
+        EquipoEstandar.h
+        OrdenamientoDiario.cpp
+        OrdenamientoDiario.h
+        Simulador.cpp
+        Simulador.h
+        ArchivoInvalidoException.cpp
+        ArchivoInvalidoException.h
+        FormatoInvalidoException.cpp
+        FormatoInvalidoException.h
+        OperacionInconsistenteException.cpp
+        OperacionInconsistenteException.h)
