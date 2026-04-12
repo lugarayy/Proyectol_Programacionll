@@ -11,7 +11,7 @@ class IncidenciaBase : public Incidencia
 {
     IncidenciaBase(const string &id, int dia);
 
-    int getSeriedad() const override;
+    int getSeveridad() const override;
     string getDescripcion() const override;
 };
 

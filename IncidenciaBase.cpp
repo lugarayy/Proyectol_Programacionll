@@ -7,12 +7,12 @@
 IncidenciaBase::IncidenciaBase(const string& id, int dia)
 : Incidencia(id, dia) {}
 
-int IncidenciaBase::getSeriedad() const
+int IncidenciaBase::getSeveridad() const
 {
     return 1; // la seriedad de la base es 1, no es algo grave, solo es base
 }
 
 string IncidenciaBase::getDescripcion() const
 {
-    return "Incidencia base";
+    return "Incidencia ";
 }

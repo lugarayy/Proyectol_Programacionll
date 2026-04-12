@@ -32,4 +32,10 @@ add_executable(Proyectol_Programacionll
         LectorArchivos.cpp
         LectorArchivos.h
         MenorACeroException.cpp
-        MenorACeroException.h)
+        MenorACeroException.h
+        DecoradorIncidencia.cpp
+        DecoradorIncidencia.h
+        IncidenciaSeveridadAlta.cpp
+        IncidenciaSeveridadAlta.h
+        IncidenciaSeveridadMedia.cpp
+        IncidenciaSeveridadMedia.h)

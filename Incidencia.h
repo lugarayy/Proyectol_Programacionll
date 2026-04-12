@@ -20,7 +20,7 @@ public:
     Incidencia(const string& id, int dia);
     virtual ~Incidencia() {}
 
-    virtual int getSeriedad() const = 0;
+    virtual int getSeveridad () const = 0;
     virtual string getDescripcion() const = 0;
 
     string getEquipoId() const;
