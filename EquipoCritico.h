@@ -9,6 +9,7 @@
 
 class EquipoCritico : public Equipo
 {
+public:
     EquipoCritico(const string &id,int crti, int estado);
 
     void degradar() override;

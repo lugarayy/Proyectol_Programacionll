@@ -5,9 +5,11 @@
 #ifndef PROYECTOL_PROGRAMACIONLL_FORMATOINVALIDOEXCEPTION_H
 #define PROYECTOL_PROGRAMACIONLL_FORMATOINVALIDOEXCEPTION_H
 
+#include "InvalidoException.h"
 
-class FormatoInvalidoException {
+class FormatoInvalidoException : public InvalidoException {
+public:
+    FormatoInvalidoException();
 };
-
 
 #endif //PROYECTOL_PROGRAMACIONLL_FORMATOINVALIDOEXCEPTION_H

@@ -4,7 +4,9 @@
 
 #ifndef PROYECTOL_PROGRAMACIONLL_ORDENAMIENTODIARIO_H
 #define PROYECTOL_PROGRAMACIONLL_ORDENAMIENTODIARIO_H
-
+#include "Equipo.h"
+#include <string>
+#include <vector>
 
 class OrdenamientoDiario {
 };

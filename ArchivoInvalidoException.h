@@ -5,9 +5,11 @@
 #ifndef PROYECTOL_PROGRAMACIONLL_ARCHIVOINVALIDOEXCEPTION_H
 #define PROYECTOL_PROGRAMACIONLL_ARCHIVOINVALIDOEXCEPTION_H
 
+#include "InvalidoException.h"
 
-class ArchivoInvalidoException {
+class ArchivoInvalidoException : public InvalidoException {
+public:
+    ArchivoInvalidoException();
 };
-
 
 #endif //PROYECTOL_PROGRAMACIONLL_ARCHIVOINVALIDOEXCEPTION_H

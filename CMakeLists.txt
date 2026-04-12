@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.2)
+cmake_minimum_required(VERSION 4.1)
 project(Proyectol_Programacionll)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -26,4 +26,10 @@ add_executable(Proyectol_Programacionll
         Incidencia.cpp
         Incidencia.h
         IncidenciaBase.cpp
-        IncidenciaBase.h)
+        IncidenciaBase.h
+        InvalidoException.cpp
+        InvalidoException.h
+        LectorArchivos.cpp
+        LectorArchivos.h
+        MenorACeroException.cpp
+        MenorACeroException.h)

@@ -5,9 +5,11 @@
 #ifndef PROYECTOL_PROGRAMACIONLL_OPERACIONINCONSISTENTEEXCEPTION_H
 #define PROYECTOL_PROGRAMACIONLL_OPERACIONINCONSISTENTEEXCEPTION_H
 
+#include "InvalidoException.h"
 
-class OperacionInconsistenteException {
+class OperacionInconsistenteException : public InvalidoException {
+public:
+    OperacionInconsistenteException();
 };
-
 
 #endif //PROYECTOL_PROGRAMACIONLL_OPERACIONINCONSISTENTEEXCEPTION_H
