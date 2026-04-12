@@ -24,4 +24,9 @@ add_executable(Proyectol_Programacionll
         OperacionInconsistenteException.cpp
         OperacionInconsistenteException.h
         InvalidoException.cpp
-        InvalidoException.h)
+        InvalidoException.h
+        LectorArchivos.cpp
+        LectorArchivos.h
+        MenorACeroException.cpp
+        MenorACeroException.h
+        equipos.txt)
