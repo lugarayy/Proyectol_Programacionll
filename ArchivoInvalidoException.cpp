@@ -4,4 +4,4 @@
 
 #include "ArchivoInvalidoException.h"
 
-ArchivoInvalidoException::ArchivoInvalidoException() : InvalidoException(msj) {}
+ArchivoInvalidoException::ArchivoInvalidoException() : InvalidoException("Archivo invalido") {}

@@ -1,6 +1,0 @@
-EC01,critico,8.90
-EC02,critico,6.70
-ES01,estandar,3.85
-ES02,estandar,5.60
-EC03,critico,9.40
-ES03,estandar,2.95

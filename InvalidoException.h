@@ -4,18 +4,14 @@
 
 #ifndef PROYECTOL_PROGRAMACIONLL_INVALIDOEXCEPTION_H
 #define PROYECTOL_PROGRAMACIONLL_INVALIDOEXCEPTION_H
-#include <exception>
-#include <iostream>
+
+#include <stdexcept>
+#include <string>
 using namespace std;
 
-class InvalidoException : public exception {
-protected:
-    string msg;
+class InvalidoException : public runtime_error {
 public:
-    InvalidoException();
-    explicit InvalidoException(const string &msg); //El explicit está para evitar la inicializacion en automatico,
-    //el const porque no se va a modificar y la referencia para no hacer una copia del string.
+    explicit InvalidoException(const string &msg);
 };
-
 
 #endif //PROYECTOL_PROGRAMACIONLL_INVALIDOEXCEPTION_H

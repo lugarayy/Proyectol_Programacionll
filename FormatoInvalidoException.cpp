@@ -4,4 +4,4 @@
 
 #include "FormatoInvalidoException.h"
 
-FormatoInvalidoException::FormatoInvalidoException() : InvalidoException(msj) {}
+FormatoInvalidoException::FormatoInvalidoException() : InvalidoException("Formato invalido") {}

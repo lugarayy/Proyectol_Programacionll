@@ -17,6 +17,8 @@ vector<Equipo*> LectorArchivos::lectorDeArchivos(const string &equipos) {
 
     string linea;
     while (getline(archivo, linea)) {
+        int criticidad=0;
+        int estado=0;
         istringstream ss(linea);
         string id, tipo, sCriticidad, sEstado;
         getline(ss, id, ',');
@@ -27,8 +29,12 @@ vector<Equipo*> LectorArchivos::lectorDeArchivos(const string &equipos) {
         if (id.empty() || tipo.empty() || sCriticidad.empty() || sEstado.empty()) {
             throw FormatoInvalidoException();
         }
-        int criticidad = stoi(sCriticidad);
-        int estado = stoi(sEstado);
+        try{
+        criticidad = stoi(sCriticidad);
+        estado = stoi(sEstado);
+        }catch (invalid_argument&) {
+            throw FormatoInvalidoException();
+        }
 
         if (criticidad < 0 || estado < 0) {
             throw MenorACeroException();

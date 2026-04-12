@@ -4,4 +4,4 @@
 
 #include "OperacionInconsistenteException.h"
 
-OperacionInconsistenteException::OperacionInconsistenteException() : InvalidoException(msj) {}
+OperacionInconsistenteException::OperacionInconsistenteException() : InvalidoException("Operacion inconsistente") {}

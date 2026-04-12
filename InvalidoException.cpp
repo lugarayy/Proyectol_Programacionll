@@ -4,8 +4,4 @@
 
 #include "InvalidoException.h"
 
-InvalidoException::InvalidoException() {
-msg="Invalido";
-}
-
-InvalidoException::InvalidoException(const string &msg) : msg(msg) {}
+InvalidoException::InvalidoException(const string &msg) : runtime_error(msg) {}
