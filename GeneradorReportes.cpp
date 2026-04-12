@@ -3,3 +3,15 @@
 //
 
 #include "GeneradorReportes.h"
+
+string GeneradorReportes::calcularRiesgo(vector<Equipo*> &equipos) {
+
+}
+
+GeneradorReportes::GeneradorReportes() {
+
+}
+
+void GeneradorReportes::generarDia(int dia, vector<Equipo*> &atendidos, vector<Equipo*> &todos) {
+
+}
