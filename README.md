@@ -364,4 +364,5 @@ Excepciones personalizadas
 | 28-30 abril | Pruebas, documento técnico, evidencia |
 | 2 mayo | Entrega 🎯 |
 
+---
 
