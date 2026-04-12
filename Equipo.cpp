@@ -3,7 +3,7 @@
 //
 
 #include "Equipo.h"
-//#include "Incidencia.h"
+#include "Incidencia.h"
 
 Equipo::Equipo(const string& id, int criti, int est)
 {
@@ -18,7 +18,7 @@ Equipo::~Equipo()
 {
     for (Incidencia* incidencia : incidencias)
     {
-        //delete incidencia;
+        delete incidencia;
     }
     incidencias.clear();
 }

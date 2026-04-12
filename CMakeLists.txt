@@ -38,4 +38,6 @@ add_executable(Proyectol_Programacionll
         IncidenciaSeveridadAlta.cpp
         IncidenciaSeveridadAlta.h
         IncidenciaSeveridadMedia.cpp
-        IncidenciaSeveridadMedia.h)
+        IncidenciaSeveridadMedia.h
+        EleccionPrioridad.cpp
+        EleccionPrioridad.h)

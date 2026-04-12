@@ -18,7 +18,7 @@ protected:
     int diaDiagnostico;
 public:
     Incidencia(const string& id, int dia);
-    virtual ~Incidencia() {}
+    virtual ~Incidencia() = default;
 
     virtual int getSeveridad () const = 0;
     virtual string getDescripcion() const = 0;

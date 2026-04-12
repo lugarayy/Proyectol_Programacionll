@@ -332,13 +332,13 @@ Excepciones personalizadas
 
 ### 🟦 Persona A — Dominio (las clases del mundo real)
 
-| Semana | Tarea |
-|---|---|
+| Semana | Tarea                                                                                                                                           |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Sem 1 | Clase `Equipo` abstracta + `EquipoCritico` + `EquipoEstandar` con atributos `criticidad`, `estado`, `tiempo_inactivo` y método `getPrioridad()` |
-| Sem 1 | `IncidenciaBase` abstracta + decoradores `IncidenciaSeveridadAlta`, `IncidenciaSeveridadMedia`, `IncidenciaConBloqueo` |
-| Sem 2 | Clase `EleccionTecnica` — recibe `vector<Equipo*>`, llama `getPrioridad()` y selecciona los 3 más urgentes |
-| Sem 2 | Lógica de degradación diaria (fija + aleatoria) y lógica de mantenimiento (reset parcial) |
-| Sem 3 | Documento técnico + datos de prueba (100 equipos, 300 incidencias) |
+| Sem 1 | `IncidenciaBase` abstracta + decoradores `IncidenciaSeveridadAlta`, `IncidenciaSeveridadMedia`, `IncidenciaConBloqueo`                          |
+| Sem 2 | Clase `EleccionPrioridad` — recibe `vector<Equipo*>`, llama `getPrioridad()` y selecciona los 3 más urgentes                                    |
+| Sem 2 | Lógica de degradación diaria (fija + aleatoria) y lógica de mantenimiento (reset parcial)                                                       |
+| Sem 3 | Documento técnico + datos de prueba (100 equipos, 300 incidencias)                                                                              |
 
 ---
 
