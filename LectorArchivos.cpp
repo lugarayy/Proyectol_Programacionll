@@ -3,50 +3,46 @@
 //
 
 #include "LectorArchivos.h"
-
 #include "MenorACeroException.h"
 
 LectorArchivos::LectorArchivos() {}
 
 vector<Equipo*> LectorArchivos::lectorDeArchivos(const string &equipos) {
-    vector<Equipo*> equiposLeidos;
     ifstream archivo(equipos);
-    if (!archivo.is_open()) {
-        throw ArchivoInvalidoException();
-    }
-
+    if (!archivo.is_open()) throw ArchivoInvalidoException();
+    vector<Equipo*> equiposLeidos;
     string linea;
+
     while (getline(archivo, linea)) {
-        int criticidad=0;
-        int estado=0;
         istringstream ss(linea);
-        string id, tipo, sCriticidad, sEstado;
-        getline(ss, id, ',');
-        getline(ss, tipo, ',');
-        getline(ss, sCriticidad, ',');
-        getline(ss, sEstado, ',');
+        string id, sCriticidad, sEstado;
 
-        if (id.empty() || tipo.empty() || sCriticidad.empty() || sEstado.empty()) {
-            throw FormatoInvalidoException();
-        }
-        try{
-        criticidad = stoi(sCriticidad);
-        estado = stoi(sEstado);
-        }catch (invalid_argument&) {
+        // Formato: ID; Criticidad; Estado
+        getline(ss, id, ';');
+        getline(ss, sCriticidad, ';');
+        getline(ss, sEstado, ';');
+
+        if (id.empty() || sCriticidad.empty() || sEstado.empty()) {
             throw FormatoInvalidoException();
         }
 
-        if (criticidad < 0 || estado < 0) {
-            throw MenorACeroException();
+        int criticidad, estado;
+        try {
+            criticidad = stoi(sCriticidad);
+            estado     = stoi(sEstado);
+        } catch (invalid_argument&) {
+            throw FormatoInvalidoException();
         }
-        if (tipo=="critico") {
+
+        if (criticidad < 0 || estado < 0) throw MenorACeroException();
+
+        // Critico si criticidad > 5, estandar si <= 5
+        if (criticidad > 5)
             equiposLeidos.push_back(new EquipoCritico(id, criticidad, estado));
-        } else if (tipo=="estandar") {
+        else
             equiposLeidos.push_back(new EquipoEstandar(id, criticidad, estado));
-        } else {
-            throw FormatoInvalidoException();
-        }
     }
+
     return equiposLeidos;
 }
 
