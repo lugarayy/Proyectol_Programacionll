@@ -9,7 +9,7 @@ IncidenciaSeveridadAlta::IncidenciaSeveridadAlta(Incidencia* incidencia)
 
 int IncidenciaSeveridadAlta::getSeveridad() const
 {
-    return incidencia->getSeveridad() + 4;
+    return incidencia->getSeveridad() + 5;
 }
 
 string IncidenciaSeveridadAlta::getDescripcion() const

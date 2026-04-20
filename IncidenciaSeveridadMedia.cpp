@@ -9,7 +9,7 @@ IncidenciaSeveridadMedia::IncidenciaSeveridadMedia(Incidencia* incidencia)
 
 int IncidenciaSeveridadMedia::getSeveridad() const
 {
-    return incidencia->getSeveridad() + 2;
+    return incidencia->getSeveridad() + 3;
 }
 
 string IncidenciaSeveridadMedia::getDescripcion() const
