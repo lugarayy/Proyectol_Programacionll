@@ -9,6 +9,7 @@
 
 class IncidenciaBase : public Incidencia
 {
+public:
     IncidenciaBase(const string &id, int dia);
 
     int getSeveridad() const override;
