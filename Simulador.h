@@ -10,27 +10,23 @@ using namespace std;
 
 #include "Equipo.h"
 #include "EleccionPrioridad.h"
-
 #include "OrdenamientoDiario.h"
 #include "LectorArchivos.h"
-
 #include "IncidenciaBase.h"
 #include "IncidenciaSeveridadBaja.h"
 #include "IncidenciaSeveridadMedia.h"
 #include "IncidenciaSeveridadAlta.h"
-
 #include "GeneradorReportes.h"
 
-
+const int diasSimulacion = 30; // definimos los 30 dias de un solo con una constante
 
 class Simulador {
 private:
-    const int diasSimulacion = 30; // definimos los 30 dias de un solo con una constante
     int diaSimulador;
     vector<Equipo*> equipos;
     OrdenamientoDiario ordenamientoDiario;
     EleccionPrioridad eleccionPrioridad;
-
+    GeneradorReportes generadorReportes;
     //Parnas y Responsabilidad unica
     void ejecutaDiasSimulacion();
     void degradaEquiposSimulacion();

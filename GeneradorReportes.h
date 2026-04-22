@@ -8,15 +8,16 @@
 #include <fstream>
 #include <vector>
 #include "Equipo.h"
+#include "calcularRiesgo.h"
+using namespace std;
 namespace fs = filesystem;
 
 class GeneradorReportes {
-private:
-string calcularRiesgo(vector<Equipo*> &equipos);
 
 public:
     GeneradorReportes();
-    void generarDia(int dia, vector<Equipo*> &atendidos, vector<Equipo*> &todos);
+    void generarDia(int dia, vector<Equipo*> &atendidos, vector<Equipo*> &todos);\
+
 };
 
 

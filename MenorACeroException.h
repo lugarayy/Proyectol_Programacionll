@@ -8,8 +8,6 @@
 #include <string>
 
 class MenorACeroException : public InvalidoException {
-private:
-    string msj= "Dato numerico menor a 0";
 public:
     MenorACeroException();
 };

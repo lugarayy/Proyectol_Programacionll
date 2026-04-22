@@ -42,4 +42,6 @@ add_executable(Proyectol_Programacionll
         EleccionPrioridad.cpp
         EleccionPrioridad.h
         IncidenciaSeveridadBaja.cpp
-        IncidenciaSeveridadBaja.h)
+        IncidenciaSeveridadBaja.h
+        calcularRiesgo.cpp
+        calcularRiesgo.h)

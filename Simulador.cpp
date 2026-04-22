@@ -5,6 +5,8 @@
 
 #include "Simulador.h"
 
+Simulador::Simulador() : diaSimulador(1){}
+
 void Simulador::ejecutaDiasSimulacion()
 {
     degradaEquiposSimulacion();
@@ -17,6 +19,7 @@ void Simulador::ejecutaDiasSimulacion()
     vector<Equipo*> eqSel = eleccionPrioridad.seleccionPrioridad(equipos);
 
     aplicaMantenimiento(eqSel);
+
 
     cout <<"Equipos Atendidos: "<< endl;
     for (int i= 0; i < eqSel.size(); i++)
@@ -32,6 +35,7 @@ void Simulador::ejecutaDiasSimulacion()
         }
     }
     cout << endl;
+    generadorReportes.generarDia(diaSimulador, eqSel, equipos);
 }
 
 void Simulador::degradaEquiposSimulacion()
@@ -50,7 +54,7 @@ void Simulador::generarIncidencias()
         {
             int tipo = rand() % 3; // de los tres tipos que hay elige random
             Incidencia* inci;
-
+            //¿Esto no sería mejor con un switch Lu?
             if (tipo == 0)
             {
                 inci = new IncidenciaSeveridadBaja(new IncidenciaBase(equipos[i]->getId(), diaSimulador));
@@ -76,16 +80,6 @@ void Simulador::aplicaMantenimiento(vector<Equipo*>& eqSel)
     }
 }
 
-Simulador::Simulador() : diaSimulador(1){}
-
-Simulador::~Simulador()
-{
-    for (int i= 0; i < equipos.size(); i++)
-    {
-        delete equipos[i];
-    }
-    equipos.clear();
-}
 
 void Simulador::cargarEquipos(const string& archivo)
 {
@@ -100,4 +94,13 @@ void Simulador::ejecuta()
         cout << "Dia de la simulacion: " << diaSimulador << endl;
         ejecutaDiasSimulacion();
     }
+}
+
+Simulador::~Simulador()
+{
+    for (int i= 0; i < equipos.size(); i++)
+    {
+        delete equipos[i];
+    }
+    equipos.clear();
 }

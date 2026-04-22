@@ -4,4 +4,4 @@
 
 #include "MenorACeroException.h"
 
-MenorACeroException::MenorACeroException() : InvalidoException(msj) {}
+MenorACeroException::MenorACeroException() : InvalidoException("Dato numerico menor a 0") {}
