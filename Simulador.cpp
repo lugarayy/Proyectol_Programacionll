@@ -30,13 +30,12 @@ void Simulador::ejecutaDiasSimulacion() {
     ordenamiento.ordenar(eqSel); //Una formalidad para que aparezca de primero el equipo con mas prioridad
     for (int i= 0; i < eqSel.size(); i++) {
         cout << eqSel[i]->getId() << " (Prioridad: " << eqSel[i]->getPrioridad() << ")"<<endl;
-/*
         //se hace downcast por que agarra un equipo
         //pero se quiere ver si es un equipo critico
         EquipoCritico* critico = dynamic_cast<EquipoCritico*>(eqSel[i]);
         if (critico && critico->getEstado() < 30) {
             critico->generaAlerta();
-        }*/  //Para que sirve esto Lu?
+        }
     }
     cout << endl;
 

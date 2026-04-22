@@ -19,8 +19,7 @@ void EquipoCritico::degradar()
 void EquipoCritico::aplicaMantenimiento()
 {
     /* si pierde 5 por dia, y el estado es de 20, queda en 45, por ejemplo*/
-
-    setEstado(getEstado() + 25);
+    setEstado(getEstado()+25);
     resetTiempoInactivo();
     if (inciActivas > 0) //una incidencia por dia no todas
     {
@@ -35,5 +34,5 @@ string EquipoCritico::getTipo() const
 
 void EquipoCritico::generaAlerta() const
 {
-    cout << "EquipoCritico " << id <<"!!!!!" << " Estado: "<< estado<< endl;
+    cout << "Equipo "<<id<<" en estado critico!" << " Estado: "<< estado<< endl;
 }
