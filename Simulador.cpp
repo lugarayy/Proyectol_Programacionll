@@ -5,13 +5,17 @@
 
 #include "Simulador.h"
 
+#include "OperacionInconsistenteException.h"
+
 Simulador::Simulador() : diaSimulador(1) {}
 void Simulador::ejecuta() {
+    if (equipos.empty()) throw OperacionInconsistenteException(); //si no se cargan equipos, no se puede ejecutar la simulacion
     for (diaSimulador= 1; diaSimulador <= diasSimulacion; diaSimulador++)
     {
         cout << "Dia de la simulacion: " << diaSimulador << endl;
         ejecutaDiasSimulacion();
     }
+    ordenamiento.ordenar(equipos); //ordenamos los equipos al final de la simulacion para el reporte acumulado
     generadorReportes.generarReporteAcumulado(equipos);
 }
 void Simulador::ejecutaDiasSimulacion() {
