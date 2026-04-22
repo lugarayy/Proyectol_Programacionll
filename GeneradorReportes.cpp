@@ -53,6 +53,6 @@ void GeneradorReportes::generarReporteAcumulado(vector<Equipo*>& todos) {
     archivo << "\n";
     CalcularRiesgo calcular_riesgo(todos);
     archivo << "Riesgo global final: " << calcular_riesgo.getRiesgo() << "\n";
-    archivo << calcular_riesgo.getRiesgo();
+    archivo << calcular_riesgo.getProm() << "\n";
     archivo << "Total de equipos en simulacion: " << todos.size() << "\n";
 }

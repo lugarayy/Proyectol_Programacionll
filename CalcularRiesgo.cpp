@@ -9,7 +9,7 @@ CalcularRiesgo::CalcularRiesgo(const vector<Equipo *> &equipos) {
     for (int i=0; i<equipos.size(); i++) {
         suma+= equipos[i]->getEstado();
     }
-    double prom = suma / equipos.size();
+    prom = suma / equipos.size();
     if (prom>=70 ){ riesgo="MUY BAJO"; }
     else if (prom >= 50) { riesgo="BAJO"; }
     else if (prom >= 20) { riesgo="MEDIO"; }
@@ -18,4 +18,8 @@ CalcularRiesgo::CalcularRiesgo(const vector<Equipo *> &equipos) {
 
 string CalcularRiesgo::getRiesgo() {
     return riesgo;
+}
+
+double CalcularRiesgo::getProm() {
+    return prom;
 }

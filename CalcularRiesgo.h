@@ -11,10 +11,12 @@ using namespace std;
 
 class CalcularRiesgo {
 private:
+    double prom;
     string riesgo;
 public:
     CalcularRiesgo(const vector<Equipo*> &equipos);
     string getRiesgo();
+    double getProm();
 };
 
 
