@@ -19,7 +19,7 @@ void EquipoCritico::degradar()
 void EquipoCritico::aplicaMantenimiento()
 {
     /* si pierde 5 por dia, y el estado es de 20, queda en 45, por ejemplo*/
-    setEstado(getEstado()+30);
+    setEstado(getEstado()+25);
     resetTiempoInactivo();
     if (inciActivas > 0) //una incidencia por dia no todas
     {
