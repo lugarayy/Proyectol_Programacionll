@@ -13,8 +13,6 @@ add_executable(Proyectol_Programacionll
         EquipoCritico.h
         EquipoEstandar.cpp
         EquipoEstandar.h
-        OrdenamientoDiario.cpp
-        OrdenamientoDiario.h
         Simulador.cpp
         Simulador.h
         ArchivoInvalidoException.cpp
@@ -47,4 +45,6 @@ add_executable(Proyectol_Programacionll
         calcularRiesgo.h
         GeneradorIncidencias.cpp
         GeneradorIncidencias.h
+        Ordenamiento.cpp
+        Ordenamiento.h
 )

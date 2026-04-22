@@ -31,6 +31,25 @@ void GeneradorReportes::generarDia(int dia, vector<Equipo*>& atendidos, vector<E
     }
     archivo << "\n";
     archivo << "Backlog pendiente: " << (todos.size() - atendidos.size()) << "\n";
-    calcularRiesgo calcular_riesgo(todos);
+    CalcularRiesgo calcular_riesgo(todos);
     archivo << "Riesgo global: " <<calcular_riesgo.getRiesgo()<< "\n";
+}
+
+void GeneradorReportes::generarReporteAcumulado(vector<Equipo*>& todos) {
+    ofstream archivo("Simulacion/reporte_final.txt");
+
+    archivo << "=== Reporte de 30 dias ===\n\n";
+
+    archivo << "Estado final de equipos:\n";
+    for (int i = 0; i < todos.size(); i++) {
+        archivo << todos[i]->getId()
+                << " | Estado: " << todos[i]->getEstado()
+                << " | Prioridad: " << todos[i]->getPrioridad()
+                << "\n";
+    }
+
+    archivo << "\n";
+    CalcularRiesgo calcular_riesgo(todos);
+    archivo << "Riesgo global final: " << calcular_riesgo.getRiesgo() << "\n";
+    archivo << "Equipos en backlog final: " << todos.size() << "\n";
 }

@@ -8,7 +8,7 @@
 #include <vector>
 #include "Equipo.h"
 #include "EleccionPrioridad.h"
-#include "OrdenamientoDiario.h"
+#include "Ordenamiento.h"
 #include "LectorArchivos.h"
 #include "GeneradorReportes.h"
 #include "GeneradorIncidencias.h"
@@ -20,7 +20,7 @@ class Simulador {
 private:
     int diaSimulador;
     vector<Equipo*> equipos;
-    OrdenamientoDiario ordenamientoDiario;
+    Ordenamiento ordenamiento;
     EleccionPrioridad eleccionPrioridad;
     GeneradorReportes generadorReportes;
     GeneradorIncidencias generadorIncidencias;

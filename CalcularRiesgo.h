@@ -9,11 +9,11 @@
 using namespace std;
 
 
-class calcularRiesgo {
+class CalcularRiesgo {
 private:
     string riesgo;
 public:
-    calcularRiesgo(vector<Equipo*> &equipos);
+    CalcularRiesgo(const vector<Equipo*> &equipos);
     string getRiesgo();
 };
 

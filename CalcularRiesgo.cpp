@@ -1,0 +1,20 @@
+//
+// Created by Jose on 21/4/2026.
+//
+
+#include "CalcularRiesgo.h"
+
+CalcularRiesgo::CalcularRiesgo(const vector<Equipo *> &equipos) {
+    double suma = 0;
+    for (int i=0; i<equipos.size(); i++) {
+        suma+= equipos[i]->getEstado();
+    }
+    double prom = suma / equipos.size();
+    if (prom > 70) { riesgo="BAJO"; }
+    else if (prom >= 40) { riesgo="MEDIO"; }
+    else if (prom >= 0) { riesgo="ALTO"; }
+}
+
+string CalcularRiesgo::getRiesgo() {
+    return riesgo;
+}

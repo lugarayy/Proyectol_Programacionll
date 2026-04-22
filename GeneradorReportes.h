@@ -8,7 +8,7 @@
 #include <fstream>
 #include <vector>
 #include "Equipo.h"
-#include "calcularRiesgo.h"
+#include "CalcularRiesgo.h"
 using namespace std;
 namespace fs = filesystem;
 
@@ -16,7 +16,8 @@ class GeneradorReportes {
 
 public:
     GeneradorReportes();
-    void generarDia(int dia, vector<Equipo*> &atendidos, vector<Equipo*> &todos);\
+    void generarDia(int dia, vector<Equipo*> &atendidos, vector<Equipo*> &todos);
+    void generarReporteAcumulado(vector<Equipo*>& todos);
 
 };
 

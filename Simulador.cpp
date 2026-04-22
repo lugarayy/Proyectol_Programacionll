@@ -12,13 +12,14 @@ void Simulador::ejecuta() {
         cout << "Dia de la simulacion: " << diaSimulador << endl;
         ejecutaDiasSimulacion();
     }
+    generadorReportes.generarReporteAcumulado(equipos);
 }
 void Simulador::ejecutaDiasSimulacion() {
     degradaEquiposSimulacion();
     generarIncidencias();
 
     //ordena los equipos
-    equipos = ordenamientoDiario.ordenar(equipos);
+    ordenamiento.ordenar(equipos);
 
     //vector de los equipos seleccionados donde selecciona por prioridad
     vector<Equipo*> eqSel = eleccionPrioridad.seleccionPrioridad(equipos);
@@ -26,17 +27,19 @@ void Simulador::ejecutaDiasSimulacion() {
     aplicaMantenimiento(eqSel);
 
     cout <<"Equipos Atendidos: "<< endl;
+    ordenamiento.ordenar(eqSel); //Una formalidad para que aparezca de primero el equipo con mas prioridad
     for (int i= 0; i < eqSel.size(); i++) {
-        cout << eqSel[i]->getId() << " (" << eqSel[i]->getPrioridad() << ")";
-
+        cout << eqSel[i]->getId() << " (Prioridad: " << eqSel[i]->getPrioridad() << ")"<<endl;
+/*
         //se hace downcast por que agarra un equipo
         //pero se quiere ver si es un equipo critico
         EquipoCritico* critico = dynamic_cast<EquipoCritico*>(eqSel[i]);
         if (critico && critico->getEstado() < 30) {
             critico->generaAlerta();
-        }
+        }*/  //Para que sirve esto Lu?
     }
     cout << endl;
+
     generadorReportes.generarDia(diaSimulador, eqSel, equipos);
 }
 void Simulador::degradaEquiposSimulacion() const {

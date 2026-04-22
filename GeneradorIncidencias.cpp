@@ -4,11 +4,7 @@
 
 #include "GeneradorIncidencias.h"
 
-
-GeneradorIncidencias::GeneradorIncidencias() {
-
-}
-
+GeneradorIncidencias::GeneradorIncidencias() {}
 void GeneradorIncidencias::generarIncidencias(int diaSimulador, vector<Equipo *> &equipos) {
     for (int i= 0; i < equipos.size(); i++) {
         if (rand() % 100 < 20) // 20% de posibilidad de generar incidencia
