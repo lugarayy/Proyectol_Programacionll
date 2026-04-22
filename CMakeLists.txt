@@ -44,4 +44,7 @@ add_executable(Proyectol_Programacionll
         IncidenciaSeveridadBaja.cpp
         IncidenciaSeveridadBaja.h
         calcularRiesgo.cpp
-        calcularRiesgo.h)
+        calcularRiesgo.h
+        GeneradorIncidencias.cpp
+        GeneradorIncidencias.h
+)

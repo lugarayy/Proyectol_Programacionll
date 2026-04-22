@@ -6,17 +6,13 @@
 #define PROYECTOL_PROGRAMACIONLL_SIMULADOR_H
 
 #include <vector>
-using namespace std;
-
 #include "Equipo.h"
 #include "EleccionPrioridad.h"
 #include "OrdenamientoDiario.h"
 #include "LectorArchivos.h"
-#include "IncidenciaBase.h"
-#include "IncidenciaSeveridadBaja.h"
-#include "IncidenciaSeveridadMedia.h"
-#include "IncidenciaSeveridadAlta.h"
 #include "GeneradorReportes.h"
+#include "GeneradorIncidencias.h"
+using namespace std;
 
 const int diasSimulacion = 30; // definimos los 30 dias de un solo con una constante
 
@@ -27,9 +23,11 @@ private:
     OrdenamientoDiario ordenamientoDiario;
     EleccionPrioridad eleccionPrioridad;
     GeneradorReportes generadorReportes;
+    GeneradorIncidencias generadorIncidencias;
+
     //Parnas y Responsabilidad unica
     void ejecutaDiasSimulacion();
-    void degradaEquiposSimulacion();
+    void degradaEquiposSimulacion() const;
     void generarIncidencias();
     void aplicaMantenimiento(vector<Equipo*>& eqSel);
 public:

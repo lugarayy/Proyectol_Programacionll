@@ -5,10 +5,15 @@
 
 #include "Simulador.h"
 
-Simulador::Simulador() : diaSimulador(1){}
-
-void Simulador::ejecutaDiasSimulacion()
-{
+Simulador::Simulador() : diaSimulador(1) {}
+void Simulador::ejecuta() {
+    for (diaSimulador= 1; diaSimulador <= diasSimulacion; diaSimulador++)
+    {
+        cout << "Dia de la simulacion: " << diaSimulador << endl;
+        ejecutaDiasSimulacion();
+    }
+}
+void Simulador::ejecutaDiasSimulacion() {
     degradaEquiposSimulacion();
     generarIncidencias();
 
@@ -20,84 +25,40 @@ void Simulador::ejecutaDiasSimulacion()
 
     aplicaMantenimiento(eqSel);
 
-
     cout <<"Equipos Atendidos: "<< endl;
-    for (int i= 0; i < eqSel.size(); i++)
-    {
+    for (int i= 0; i < eqSel.size(); i++) {
         cout << eqSel[i]->getId() << " (" << eqSel[i]->getPrioridad() << ")";
 
         //se hace downcast por que agarra un equipo
         //pero se quiere ver si es un equipo critico
         EquipoCritico* critico = dynamic_cast<EquipoCritico*>(eqSel[i]);
-        if (critico && critico->getEstado() < 30)
-        {
+        if (critico && critico->getEstado() < 30) {
             critico->generaAlerta();
         }
     }
     cout << endl;
     generadorReportes.generarDia(diaSimulador, eqSel, equipos);
 }
-
-void Simulador::degradaEquiposSimulacion()
-{
+void Simulador::degradaEquiposSimulacion() const {
     for (int i= 0; i < equipos.size(); i++)
     {
         equipos[i]->degradar();
     }
 }
-
-void Simulador::generarIncidencias()
-{
-    for (int i= 0; i < equipos.size(); i++)
-    {
-        if (rand() % 100 < 20) // 20% de posibilidad de generar incidencia
-        {
-            int tipo = rand() % 3; // de los tres tipos que hay elige random
-            Incidencia* inci;
-            //¿Esto no sería mejor con un switch Lu?
-            if (tipo == 0)
-            {
-                inci = new IncidenciaSeveridadBaja(new IncidenciaBase(equipos[i]->getId(), diaSimulador));
-            } else if (tipo == 1)
-            {
-                inci = new IncidenciaSeveridadMedia(new IncidenciaBase(equipos[i]->getId(), diaSimulador));
-
-            }else
-            {
-                inci = new IncidenciaSeveridadAlta(new IncidenciaBase(equipos[i]->getId(), diaSimulador));
-
-            }
-          equipos[i]->agregarIncidencias(inci);
-        }
-    }
+void Simulador::generarIncidencias(){
+    generadorIncidencias.generarIncidencias(diaSimulador, equipos);
 }
-
-void Simulador::aplicaMantenimiento(vector<Equipo*>& eqSel)
-{
+void Simulador::aplicaMantenimiento(vector<Equipo*>& eqSel) {
     for (int i = 0; i < eqSel.size(); i++)
     {
         eqSel[i]->aplicaMantenimiento();
     }
 }
-
-
-void Simulador::cargarEquipos(const string& archivo)
-{
+void Simulador::cargarEquipos(const string& archivo) {
     LectorArchivos lector;
     equipos = lector.lectorDeArchivos(archivo);
 }
-
-void Simulador::ejecuta()
-{
-    for (diaSimulador= 1; diaSimulador <= diasSimulacion; diaSimulador++)
-    {
-        cout << "Dia de la simulacion: " << diaSimulador << endl;
-        ejecutaDiasSimulacion();
-    }
-}
-
-Simulador::~Simulador()
-{
+Simulador::~Simulador() {
     for (int i= 0; i < equipos.size(); i++)
     {
         delete equipos[i];
