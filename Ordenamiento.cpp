@@ -14,9 +14,14 @@ void Ordenamiento::ordenamiento(vector<Equipo*>& equipos, int menor, int mayor) 
 
 int Ordenamiento::particion(vector<Equipo*>& equipos, int menor, int mayor) {
     double pivote = equipos[mayor]->getPrioridad();
+    double critipivote = equipos[mayor]->getCriticidad();
     int i = menor - 1;
+
     for (int j = menor; j < mayor; j++) {
-        if (equipos[j]->getPrioridad() > pivote) {
+        double pj = equipos[j]->getPrioridad();
+        double cj = equipos[j]->getCriticidad();
+
+        if (pj > pivote ||(pj == pivote && cj > critipivote)) {
             i++;
             swap(equipos[i], equipos[j]);
         }
