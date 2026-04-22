@@ -6,7 +6,7 @@
 
 GeneradorIncidencias::GeneradorIncidencias() {}
 void GeneradorIncidencias::generarIncidencias(int diaSimulador, vector<Equipo *> &equipos) {
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < equipos.size(); i++) {
         if (rand() % 100 <= 20) // 20% de posibilidad de generar incidencia
         {
             int tipo = rand() % 3; // de los tres tipos que hay elige random

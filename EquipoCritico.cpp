@@ -13,13 +13,15 @@ void EquipoCritico::degradar()
     int degradado;
     degradado = 3 +(rand() % 3); //hacemos que se degraden de 3 y 5
     setEstado(getEstado() - degradado);
+    setCriticidad(getCriticidad() + 2);
     incrementaTiempoInactivo();
 }
 
 void EquipoCritico::aplicaMantenimiento()
 {
     /* si pierde 5 por dia, y el estado es de 20, queda en 45, por ejemplo*/
-    setEstado(getEstado()+25);
+    setEstado(getEstado() + 45);
+    setCriticidad(getCriticidad() - 2);
     resetTiempoInactivo();
     if (inciActivas > 0) //una incidencia por dia no todas
     {

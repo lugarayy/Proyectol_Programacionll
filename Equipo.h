@@ -38,7 +38,8 @@ public:
     int getTiempoInactivo() const;
     int getInciActivas() const;
 
-    void setEstado(int nuevoes);
+    void setEstado(int nuevoEs);
+    void setCriticidad(int nuevoCri);
 
     void incrementaTiempoInactivo();
     void resetTiempoInactivo();

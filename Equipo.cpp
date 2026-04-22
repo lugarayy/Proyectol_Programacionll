@@ -37,17 +37,17 @@ int Equipo::getInciActivas() const { return inciActivas; }
 int Equipo::getTiempoInactivo() const { return tiempoInactivo; }
 
 
-void Equipo::setEstado(int nuevoes)
+void Equipo::setEstado(int nuevoEs)
 {
-    if (nuevoes < 0)
+    if (nuevoEs < 0)
     {
         estado = 0;
-    } else if (nuevoes > 100)
+    } else if (nuevoEs > 100)
     {
         estado = 100;
     } else
     {
-        estado = nuevoes;
+        estado = nuevoEs;
     }
 }
 
@@ -70,4 +70,18 @@ void Equipo::agregarIncidencias(Incidencia* in)
 void Equipo::actualizarIncidencias()
 {
     inciActivas = incidencias.size();
+}
+
+void Equipo::setCriticidad(int nuevoCri)
+{
+    if (nuevoCri < 0)
+    {
+        criticidad = 0;
+    } else if (nuevoCri > 100)
+    {
+        criticidad = 100;
+    } else
+    {
+        criticidad = nuevoCri;
+    }
 }
