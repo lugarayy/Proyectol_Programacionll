@@ -13,14 +13,16 @@ void Simulador::ejecuta() {
     for (diaSimulador= 1; diaSimulador <= diasSimulacion; diaSimulador++)
     {
         cout << "Dia de la simulacion: " << diaSimulador << endl;
+        equipos=definirEquipo.definirEquipoConVector(equipos);
         ejecutaDiasSimulacion();
     }
+    equipos=definirEquipo.definirEquipoConVector(equipos);
     ordenamiento.ordenar(equipos); //ordenamos los equipos al final de la simulacion para el reporte acumulado
     generadorReportes.generarReporteAcumulado(equipos);
 }
+
 void Simulador::ejecutaDiasSimulacion() {
     degradaEquiposSimulacion();
-    generarIncidencias();
 
     //ordena los equipos
     ordenamiento.ordenar(equipos);
@@ -49,11 +51,8 @@ void Simulador::ejecutaDiasSimulacion() {
 void Simulador::degradaEquiposSimulacion() const {
     for (int i= 0; i < equipos.size(); i++)
     {
-        equipos[i]->degradar();
+        equipos[i]->degradar(diaSimulador, *equipos[i]);
     }
-}
-void Simulador::generarIncidencias(){
-    generadorIncidencias.generarIncidencias(diaSimulador, equipos);
 }
 void Simulador::aplicaMantenimiento(vector<Equipo*>& eqSel) {
     for (int i = 0; i < eqSel.size(); i++)

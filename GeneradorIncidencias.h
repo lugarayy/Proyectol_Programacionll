@@ -14,7 +14,7 @@
 class GeneradorIncidencias {
 public:
     GeneradorIncidencias();
-    void generarIncidencias(int diaSimulador, vector<Equipo*>& equipos);
+    void generarIncidencias(int diaSimulador, Equipo& equipo);
 };
 
 

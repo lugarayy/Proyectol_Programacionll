@@ -47,4 +47,6 @@ add_executable(Proyectol_Programacionll
         GeneradorIncidencias.h
         Ordenamiento.cpp
         Ordenamiento.h
+        DefinirEquipo.cpp
+        DefinirEquipo.h
 )

@@ -3,7 +3,6 @@
 //
 
 #include "LectorArchivos.h"
-#include "MenorACeroException.h"
 
 LectorArchivos::LectorArchivos() {}
 
@@ -34,13 +33,8 @@ vector<Equipo*> LectorArchivos::lectorDeArchivos(const string &equipos) {
             throw FormatoInvalidoException();
         }
 
-        if (criticidad < 0 || estado < 0) throw MenorACeroException();
-
-        // Critico si criticidad > 5, estandar si <= 5
-        if (criticidad > 5)
-            equiposLeidos.push_back(new EquipoCritico(id, criticidad, estado));
-        else
-            equiposLeidos.push_back(new EquipoEstandar(id, criticidad, estado));
+        DefinirEquipo def;
+        def.definirEquipoConVariables(criticidad, estado, id, equiposLeidos);
     }
 
     return equiposLeidos;

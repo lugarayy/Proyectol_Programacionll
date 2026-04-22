@@ -5,26 +5,25 @@
 #include "GeneradorIncidencias.h"
 
 GeneradorIncidencias::GeneradorIncidencias() {}
-void GeneradorIncidencias::generarIncidencias(int diaSimulador, vector<Equipo *> &equipos) {
-    for (int i = 0; i < equipos.size(); i++) {
+void GeneradorIncidencias::generarIncidencias(int dia, Equipo& equipo) {
         if (rand() % 100 <= 20) // 20% de posibilidad de generar incidencia
-        {
+            {
             int tipo = rand() % 3; // de los tres tipos que hay elige random
             Incidencia* inci;
             switch (tipo) {
                 case 0:
-                    inci = new IncidenciaSeveridadBaja(new IncidenciaBase(equipos[i]->getId(), diaSimulador));
+                    inci = new IncidenciaSeveridadBaja(new IncidenciaBase(equipo.getId(), dia));
                     break;
                 case 1:
-                    inci = new IncidenciaSeveridadMedia(new IncidenciaBase(equipos[i]->getId(), diaSimulador));
+                    inci = new IncidenciaSeveridadMedia(new IncidenciaBase(equipo.getId(), dia));
                     break;
                 case 2:
-                    inci = new IncidenciaSeveridadAlta(new IncidenciaBase(equipos[i]->getId(), diaSimulador));
+                    inci = new IncidenciaSeveridadAlta(new IncidenciaBase(equipo.getId(), dia));
                     break;
                 default:
                     inci = nullptr;
             }
-            equipos[i]->agregarIncidencias(inci);
+            equipo.agregarIncidencias(inci);
         }
-    }
+
 }

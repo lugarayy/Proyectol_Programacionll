@@ -10,6 +10,7 @@
 #include "EleccionPrioridad.h"
 #include "Ordenamiento.h"
 #include "LectorArchivos.h"
+#include "DefinirEquipo.h"
 #include "GeneradorReportes.h"
 #include "GeneradorIncidencias.h"
 using namespace std;
@@ -24,11 +25,11 @@ private:
     EleccionPrioridad eleccionPrioridad;
     GeneradorReportes generadorReportes;
     GeneradorIncidencias generadorIncidencias;
+    DefinirEquipo definirEquipo;
 
     //Parnas y Responsabilidad unica
     void ejecutaDiasSimulacion();
     void degradaEquiposSimulacion() const;
-    void generarIncidencias();
     void aplicaMantenimiento(vector<Equipo*>& eqSel);
 public:
     Simulador();

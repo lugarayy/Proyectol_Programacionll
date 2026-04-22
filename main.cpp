@@ -15,6 +15,11 @@ int main() {
         cout << "Error: " << e.what() << endl;
     } catch (FormatoInvalidoException& e) {
         cout << "Error: " << e.what() << endl;
+    } catch (OperacionInconsistenteException& e) {
+        cout << "Error: " << e.what() << endl;
+    } catch (MenorACeroException& e) {
+        cout << "Error: " << e.what() << endl;
     }
+
     return 0;
 }

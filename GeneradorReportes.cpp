@@ -39,7 +39,7 @@ void GeneradorReportes::generarReporteAcumulado(vector<Equipo*>& todos) {
     ofstream archivo("Simulacion/reporte_final.txt");
 
     archivo << "=== Reporte de 30 dias ===\n\n";
-    archivo << "Estado final de equipos:\n";\
+    archivo << "Estado final de equipos:\n";
     for (int i = 0; i < todos.size(); i++) {
         archivo << todos[i]->getId()
                 << "   | Estado: " << todos[i]->getEstado()
@@ -53,5 +53,5 @@ void GeneradorReportes::generarReporteAcumulado(vector<Equipo*>& todos) {
     archivo << "\n";
     CalcularRiesgo calcular_riesgo(todos);
     archivo << "Riesgo global final: " << calcular_riesgo.getRiesgo() << "\n";
-    archivo << "Equipos en backlog final: " << todos.size() << "\n";
+    archivo << "Total de equipos en simulacion: " << todos.size() << "\n";
 }

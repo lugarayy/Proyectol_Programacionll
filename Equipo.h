@@ -15,17 +15,17 @@ class Equipo
 {
     protected:
     string id;
-    int criticidad;
+    double criticidad;
     int estado;
     int tiempoInactivo; //los dias
     int inciActivas;
     vector <Incidencia*> incidencias;
 
 public:
-    Equipo(const string &id, int criti, int est);
+    Equipo(const string &id, double criti, int est);
     virtual ~Equipo();
 
-    virtual void degradar() = 0;
+    virtual void degradar(int dia, Equipo&) = 0;
     virtual void aplicaMantenimiento() = 0;
     virtual string getTipo() const = 0;
 
@@ -33,14 +33,13 @@ public:
     double getPrioridad() const;
 
     string getId() const;
-    int getCriticidad() const;
+    double getCriticidad() const;
     int getEstado() const;
     int getTiempoInactivo() const;
     int getInciActivas() const;
 
     void setEstado(int nuevoEs);
-    void setCriticidad(int nuevoCri);
-
+    void setCriticidad(double nuevoCri);
     void incrementaTiempoInactivo();
     void resetTiempoInactivo();
     void agregarIncidencias(Incidencia* in);
