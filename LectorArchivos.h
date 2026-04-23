@@ -19,6 +19,7 @@ class LectorArchivos {
     public:
     LectorArchivos();
     vector<Equipo*> lectorDeArchivos(const string &equipos);
+    void leerIncidencias(const string& archivoIncidencias, vector<Equipo*>& equiposLeidos);
     ~LectorArchivos();
 };
 
