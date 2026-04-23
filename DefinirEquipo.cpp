@@ -3,6 +3,8 @@
 //
 
 #include "DefinirEquipo.h"
+#include "EquipoCritico.h"
+#include "EquipoEstandar.h"
 
 const int criticidadMaxPermitida=5;
 
@@ -18,14 +20,4 @@ void DefinirEquipo::definirEquipoConVariables(const double criticidad, const int
         equiposLeidos.push_back(new EquipoEstandar(id, criticidad, estado));
 }
 
-vector<Equipo*> DefinirEquipo::definirEquipoConVector(vector<Equipo*> &equiposLeidos) {
-    vector<Equipo*> equiposDefinidos;
-    for (Equipo* equipo : equiposLeidos) {
-        if (equipo->getCriticidad() > criticidadMaxPermitida)
-            equiposDefinidos.push_back(new EquipoCritico(equipo->getId(), equipo->getCriticidad(), equipo->getEstado()));
-        else
-            equiposDefinidos.push_back(new EquipoEstandar(equipo->getId(), equipo->getCriticidad(), equipo->getEstado()));
-    }
-    return equiposDefinidos;
-}
 

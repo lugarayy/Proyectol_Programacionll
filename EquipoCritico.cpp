@@ -14,7 +14,6 @@ void EquipoCritico::degradar(int dia, Equipo& equipo){
     setEstado(getEstado() - degradado);
     setCriticidad(getCriticidad() + 0.20);
     if (getInciActivas()>0)incrementaTiempoInactivo();
-    generadorIncidencias.generarIncidencias(dia, equipo);
 }
 
 void EquipoCritico::aplicaMantenimiento()

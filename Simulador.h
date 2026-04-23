@@ -7,10 +7,10 @@
 
 #include <vector>
 #include "Equipo.h"
+#include "EquipoCritico.h"
 #include "EleccionPrioridad.h"
 #include "Ordenamiento.h"
 #include "LectorArchivos.h"
-#include "DefinirEquipo.h"
 #include "GeneradorReportes.h"
 #include "GeneradorIncidencias.h"
 using namespace std;
@@ -25,7 +25,6 @@ private:
     EleccionPrioridad eleccionPrioridad;
     GeneradorReportes generadorReportes;
     GeneradorIncidencias generadorIncidencias;
-    DefinirEquipo definirEquipo;
 
     //Parnas y Responsabilidad unica
     void ejecutaDiasSimulacion();
