@@ -49,4 +49,6 @@ add_executable(Proyectol_Programacionll
         Ordenamiento.h
         DefinirEquipo.cpp
         DefinirEquipo.h
+        BusquedaBinaria.cpp
+        BusquedaBinaria.h
 )

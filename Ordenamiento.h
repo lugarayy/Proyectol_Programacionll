@@ -12,9 +12,12 @@ class Ordenamiento {
 private:
     void ordenamiento(vector<Equipo*>& equipos, int menor, int mayor);
     int particion(vector<Equipo*>& equipos, int menor, int mayor);
+    void ordenamientoPorId(vector<Equipo*>& equipos, int menor, int mayor);
+    int particionPorId(vector<Equipo*>& equipos, int menor, int mayor);
 
 public:
     void ordenar(vector<Equipo*> &equipos);
+    void ordenarPorId(vector<Equipo*> &equipos);
 };
 
 

@@ -3,16 +3,40 @@
 //
 
 #include "LectorArchivos.h"
-//
-// Created by Jose on 11/4/2026.
-//
+#include "ArchivoInvalidoException.h"
+#include "DefinirEquipo.h"
+#include "FormatoInvalidoException.h"
+#include "BusquedaBinaria.h"
+#include "GeneradorIncidencias.h"
+#include "Ordenamiento.h"
+#include <fstream>
+#include <sstream>
 
-#include "LectorArchivos.h"
-#include "IncidenciaBase.h"
-#include "IncidenciaSeveridadAlta.h"
-#include "IncidenciaSeveridadBaja.h"
-#include "IncidenciaSeveridadMedia.h"
-#include <algorithm>
+namespace {
+string limpiar(const string& txt) {
+    const string ws = " \t\n\r\f\v";
+    size_t ini = txt.find_first_not_of(ws);
+    if (ini == string::npos) return "";
+    size_t fin = txt.find_last_not_of(ws);
+    return txt.substr(ini, fin - ini + 1);
+}
+
+string valorCampo(const string& campo) {
+    size_t pos = campo.find('=');
+    if (pos == string::npos) return limpiar(campo);
+    return limpiar(campo.substr(pos + 1));
+}
+
+int leerEntero(const string& campo) {
+    string v = valorCampo(campo);
+    if (v.empty()) throw FormatoInvalidoException();
+    try {
+        return stoi(v);
+    } catch (invalid_argument&) {
+        throw FormatoInvalidoException();
+    }
+}
+}
 
 LectorArchivos::LectorArchivos() {}
 
@@ -23,11 +47,16 @@ vector<Equipo*> LectorArchivos::lectorDeArchivos(const string &equipos) {
     string linea;
 
     while (getline(archivo, linea)) {
+        linea = limpiar(linea);
+        if (linea.empty()) continue;
+
         istringstream ss(linea);
         string id, sCriticidad, sEstado;
 
-        // Formato: ID; Criticidad; Estado
+        // Formato: EQ-001; criticidad = 9; estado = 70
         getline(ss, id, ';');
+        id = limpiar(id);
+        if (id == "INC") continue; // Permite archivo mixto como el ejemplo del README.
         getline(ss, sCriticidad, ';');
         getline(ss, sEstado, ';');
 
@@ -35,13 +64,8 @@ vector<Equipo*> LectorArchivos::lectorDeArchivos(const string &equipos) {
             throw FormatoInvalidoException();
         }
 
-        int criticidad, estado;
-        try {
-            criticidad = stoi(sCriticidad);
-            estado = stoi(sEstado);
-        } catch (invalid_argument&) {
-            throw FormatoInvalidoException();
-        }
+        int criticidad = leerEntero(sCriticidad);
+        int estado = leerEntero(sEstado);
 
         DefinirEquipo def;
         def.definirEquipoConVariables(criticidad, estado, id, equiposLeidos);
@@ -54,56 +78,43 @@ void LectorArchivos::leerIncidencias(const string& archivoIncidencias, vector<Eq
     ifstream archivo(archivoIncidencias);
     if (!archivo.is_open()) throw ArchivoInvalidoException();
 
-    // Copia ordenada para buscar por ID con busqueda binaria.
     vector<Equipo*> equiposOrdenados = equiposLeidos;
-    sort(equiposOrdenados.begin(), equiposOrdenados.end(), [](Equipo* a, Equipo* b) {
-        return a->getId() < b->getId();
-    });
+    Ordenamiento ord;
+    ord.ordenarPorId(equiposOrdenados);
+    BusquedaBinaria busqueda;
+    GeneradorIncidencias generador;
 
     string linea;
     while (getline(archivo, linea)) {
+        linea = limpiar(linea);
         if (linea.empty()) continue;
 
         istringstream ss(linea);
-        string id, sev, sDia;
-        getline(ss, id, ';');
-        getline(ss, sev, ';');
-        getline(ss, sDia, ';');
+        string inc, id, severidad, diaInc;
+        getline(ss, inc, ';');
+        inc = limpiar(inc);
 
-        if (id.empty() || sev.empty() || sDia.empty()) throw FormatoInvalidoException();
-
-        int dia;
-        try {
-            dia = stoi(sDia);
-        } catch (invalid_argument&) {
-            throw FormatoInvalidoException();
+        // Formato: INC; EQ-001; severidad = ALTA; dia = 3
+        if (inc == "INC") {
+            getline(ss, id, ';');
+            getline(ss, severidad, ';');
+            getline(ss, diaInc, ';');
+        } else {
+         throw FormatoInvalidoException();
         }
 
-        Equipo* eq = nullptr;
-        int ini = 0;
-        int fin = static_cast<int>(equiposOrdenados.size()) - 1;
-        while (ini <= fin) {
-            int medio = ini + (fin - ini) / 2;
-            const string& idMedio = equiposOrdenados[medio]->getId();
-            if (idMedio == id) {
-                eq = equiposOrdenados[medio];
-                break;
-            }
-            if (idMedio < id) ini = medio + 1;
-            else fin = medio - 1;
-        }
+        id = limpiar(id);
+        severidad = valorCampo(severidad);
+        diaInc = valorCampo(diaInc);
+
+        if (id.empty() || severidad.empty() || diaInc.empty()) throw FormatoInvalidoException();
+
+        int dia = leerEntero(diaInc);
+
+        Equipo* eq = busqueda.buscarEquipoPorId(equiposOrdenados, id);
         if (!eq) throw FormatoInvalidoException();
 
-        Incidencia* inci = nullptr;
-        if (sev == "ALTA" || sev == "Alta" || sev == "alta") {
-            inci = new IncidenciaSeveridadAlta(new IncidenciaBase(id, dia));
-        } else if (sev == "MEDIA" || sev == "Media" || sev == "media") {
-            inci = new IncidenciaSeveridadMedia(new IncidenciaBase(id, dia));
-        } else if (sev == "BAJA" || sev == "Baja" || sev == "baja") {
-            inci = new IncidenciaSeveridadBaja(new IncidenciaBase(id, dia));
-        } else {
-            throw FormatoInvalidoException();
-        }
+        Incidencia* inci = generador.crearIncidenciaPorSeveridad(severidad, id, dia);
 
         eq->agregarIncidencias(inci);
     }

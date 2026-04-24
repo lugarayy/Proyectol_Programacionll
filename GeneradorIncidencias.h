@@ -15,6 +15,7 @@ class GeneradorIncidencias {
 public:
     GeneradorIncidencias();
     void generarIncidencias(int diaSimulador,  Equipo& equipo);
+    Incidencia* crearIncidenciaPorSeveridad(const string& severidad, const string& idEquipo, int dia);
 };
 
 

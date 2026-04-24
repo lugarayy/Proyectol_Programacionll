@@ -1,6 +1,10 @@
 #include <iostream>
 #include "LectorArchivos.h"
 #include "Simulador.h"
+#include "ArchivoInvalidoException.h"
+#include "FormatoInvalidoException.h"
+#include "MenorACeroException.h"
+#include "OperacionInconsistenteException.h"
 #include <ctime>
 using namespace std;
 
