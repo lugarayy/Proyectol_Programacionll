@@ -100,7 +100,10 @@ void LectorArchivos::leerIncidencias(const string& archivoIncidencias, vector<Eq
             getline(ss, severidad, ';');
             getline(ss, diaInc, ';');
         } else {
-         throw FormatoInvalidoException();
+         continue; // abre el archivo desde el inicio y lee todas las líneas,
+        //pero cuando encuentra una línea que no es INC lanza
+        //FormatoInvalidoException. Las líneas de equipos
+        //(EQ-001; 9; 72) no son INC entonces crashea.
         }
 
         id = limpiar(id);

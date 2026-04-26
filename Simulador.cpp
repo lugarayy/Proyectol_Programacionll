@@ -66,6 +66,7 @@ void Simulador::aplicaMantenimiento(vector<Equipo*>& eqSel) {
 void Simulador::cargarEquipos(const string& archivo) {
     LectorArchivos lector;
     equipos = lector.lectorDeArchivos(archivo);
+    lector.leerIncidencias(archivo,equipos);
 }
 Simulador::~Simulador() {
     for (int i= 0; i < equipos.size(); i++)
