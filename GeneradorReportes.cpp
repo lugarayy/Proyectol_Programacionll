@@ -46,7 +46,8 @@ void GeneradorReportes::generarReporteAcumulado(vector<Equipo*>& todos) {
                 << "   | Estado: " << todos[i]->getEstado()
                 << "   | Prioridad: " << todos[i]->getPrioridad()
         <<"   | Incidencias Activas: " << todos[i]->getInciActivas()
-        <<"   | Tipo: " << todos[i]->getTipo()
+        <<"   | Tipo: " << todos[i]->getClasificacionporCriticidad()
+        <<"   | Modelo: " << todos[i]->getTipo()
         <<"   | Criticidad: " << todos[i]->getCriticidad()
         << "\n";
     }

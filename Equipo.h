@@ -22,12 +22,15 @@ class Equipo
     vector <Incidencia*> incidencias;
 
 public:
+    static const double TipoCriticidad;
     Equipo(const string &id, double criti, int est);
     virtual ~Equipo();
 
     virtual void degradar(int dia, Equipo&) = 0;
     virtual void aplicaMantenimiento() = 0;
     virtual string getTipo() const = 0;
+
+    string getClasificacionporCriticidad() const;
 
     //formula RF4
     double getPrioridad() const;

@@ -5,6 +5,8 @@
 #include "Equipo.h"
 #include "Incidencia.h"
 
+const double Equipo::TipoCriticidad = 5.1;
+
 Equipo::Equipo(const string& id, double criti, int est)
 {
     this->id = id;
@@ -89,4 +91,9 @@ void Equipo::setCriticidad(double nuevoCri)
     {
         criticidad = nuevoCri;
     }
+}
+
+string Equipo::getClasificacionporCriticidad() const
+{
+    return criticidad > TipoCriticidad ? "CRITICO" : "ESTANDAR";
 }

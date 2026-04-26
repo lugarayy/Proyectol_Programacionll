@@ -11,7 +11,8 @@
 class DefinirEquipo {
 public:
     DefinirEquipo();
-    void definirEquipoConVariables(double criticidad, int estado, const string &id, vector<Equipo*>& equiposLeidos);
+    void definirEquipoConVariables(double criticidad,
+        int estado, const string &id, vector<Equipo*>& equiposLeidos);
 };
 
 
