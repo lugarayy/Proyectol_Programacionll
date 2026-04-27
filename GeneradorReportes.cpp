@@ -33,7 +33,7 @@ void GeneradorReportes::generarDia(int dia, vector<Equipo*>& atendidos, vector<E
     archivo << "Backlog pendiente: " << (todos.size() - atendidos.size()) << "\n";
     CalcularRiesgo calcular_riesgo(todos);
     archivo << "Riesgo global: " <<calcular_riesgo.getRiesgo()<< "\n";
-    archivo << "Estado general de la simulacion: Promedio estado = " << calcular_riesgo.getProm() << "\n";
+    archivo << "Estado general de la simulacion: " << calcular_riesgo.getProm() << "\n";
 }
 
 void GeneradorReportes::generarReporteAcumulado(vector<Equipo*>& todos) {
