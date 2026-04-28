@@ -1,0 +1,115 @@
+EQ-001; criticidad = 9; estado = 72
+EQ-002; criticidad = 3; estado = 85
+EQ-003; criticidad = 7; estado = 44
+EQ-004; criticidad = 6; estado = 90
+EQ-005; criticidad = 2; estado = 60
+EQ-006; criticidad = 8; estado = 31
+EQ-007; criticidad = 5; estado = 78
+EQ-008; criticidad = 9; estado = 55
+EQ-009; criticidad = 4; estado = 92
+EQ-010; criticidad = 7; estado = 38
+EQ-011; criticidad = 6; estado = 67
+EQ-012; criticidad = 1; estado = 95
+EQ-013; criticidad = 8; estado = 42
+EQ-014; criticidad = 3; estado = 81
+EQ-015; criticidad = 9; estado = 29
+EQ-016; criticidad = 5; estado = 74
+EQ-017; criticidad = 7; estado = 58
+EQ-018; criticidad = 2; estado = 88
+EQ-019; criticidad = 6; estado = 47
+EQ-020; criticidad = 8; estado = 63
+EQ-021; criticidad = 4; estado = 79
+EQ-022; criticidad = 9; estado = 35
+EQ-023; criticidad = 3; estado = 91
+EQ-024; criticidad = 7; estado = 52
+EQ-025; criticidad = 6; estado = 83
+EQ-026; criticidad = 1; estado = 70
+EQ-027; criticidad = 8; estado = 41
+EQ-028; criticidad = 5; estado = 66
+EQ-029; criticidad = 9; estado = 28
+EQ-030; criticidad = 4; estado = 87
+EQ-031; criticidad = 7; estado = 53
+EQ-032; criticidad = 2; estado = 94
+EQ-033; criticidad = 6; estado = 39
+EQ-034; criticidad = 8; estado = 75
+EQ-035; criticidad = 3; estado = 61
+EQ-036; criticidad = 9; estado = 46
+EQ-037; criticidad = 5; estado = 82
+EQ-038; criticidad = 7; estado = 33
+EQ-039; criticidad = 4; estado = 89
+EQ-040; criticidad = 6; estado = 57
+EQ-041; criticidad = 8; estado = 24
+EQ-042; criticidad = 1; estado = 96
+EQ-043; criticidad = 9; estado = 48
+EQ-044; criticidad = 3; estado = 77
+EQ-045; criticidad = 7; estado = 36
+EQ-046; criticidad = 6; estado = 64
+EQ-047; criticidad = 2; estado = 91
+EQ-048; criticidad = 8; estado = 43
+EQ-049; criticidad = 5; estado = 69
+EQ-050; criticidad = 9; estado = 22
+EQ-051; criticidad = 4; estado = 86
+EQ-052; criticidad = 7; estado = 51
+EQ-053; criticidad = 6; estado = 73
+EQ-054; criticidad = 8; estado = 37
+EQ-055; criticidad = 3; estado = 93
+EQ-056; criticidad = 9; estado = 45
+EQ-057; criticidad = 5; estado = 80
+EQ-058; criticidad = 7; estado = 27
+EQ-059; criticidad = 4; estado = 84
+EQ-060; criticidad = 6; estado = 59
+EQ-061; criticidad = 8; estado = 32
+EQ-062; criticidad = 1; estado = 97
+EQ-063; criticidad = 9; estado = 50
+EQ-064; criticidad = 3; estado = 76
+EQ-065; criticidad = 7; estado = 40
+EQ-066; criticidad = 6; estado = 68
+EQ-067; criticidad = 2; estado = 90
+EQ-068; criticidad = 8; estado = 34
+EQ-069; criticidad = 5; estado = 71
+EQ-070; criticidad = 9; estado = 26
+EQ-071; criticidad = 4; estado = 88
+EQ-072; criticidad = 7; estado = 54
+EQ-073; criticidad = 6; estado = 78
+EQ-074; criticidad = 8; estado = 30
+EQ-075; criticidad = 3; estado = 85
+EQ-076; criticidad = 9; estado = 49
+EQ-077; criticidad = 5; estado = 65
+EQ-078; criticidad = 7; estado = 23
+EQ-079; criticidad = 4; estado = 92
+EQ-080; criticidad = 6; estado = 56
+EQ-081; criticidad = 8; estado = 38
+EQ-082; criticidad = 1; estado = 98
+EQ-083; criticidad = 9; estado = 44
+EQ-084; criticidad = 3; estado = 79
+EQ-085; criticidad = 7; estado = 62
+EQ-086; criticidad = 6; estado = 87
+EQ-087; criticidad = 2; estado = 33
+EQ-088; criticidad = 8; estado = 47
+EQ-089; criticidad = 5; estado = 74
+EQ-090; criticidad = 9; estado = 21
+EQ-091; criticidad = 4; estado = 83
+EQ-092; criticidad = 7; estado = 55
+EQ-093; criticidad = 6; estado = 70
+EQ-094; criticidad = 8; estado = 29
+EQ-095; criticidad = 3; estado = 91
+EQ-096; criticidad = 9; estado = 42
+EQ-097; criticidad = 5; estado = 68
+EQ-098; criticidad = 7; estado = 35
+EQ-099; criticidad = 4; estado = 86
+EQ-100; criticidad = 6; estado = 61
+INC; EQ-001; severidad = ALTA; dia = 3
+INC; EQ-002; severidad = MEDIA; dia = 5
+INC; EQ-006; severidad = BAJA; dia = 2
+INC; EQ-010; severidad = ALTA; dia = 7
+INC; EQ-015; severidad = MEDIA; dia = 4
+INC; EQ-022; severidad = ALTA; dia = 9
+INC; EQ-029; severidad = BAJA; dia = 6
+INC; EQ-041; severidad = MEDIA; dia = 8
+INC; EQ-050; severidad = ALTA; dia = 12
+INC; EQ-063; severidad = BAJA; dia = 10
+INC; EQ-070; severidad = MEDIA; dia = 11
+INC; EQ-078; severidad = ALTA; dia = 14
+INC; EQ-082; severidad = BAJA; dia = 13
+INC; EQ-090; severidad = MEDIA; dia = 15
+INC; EQ-100; severidad = ALTA; dia = 16
