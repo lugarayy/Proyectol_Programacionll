@@ -1,4 +1,6 @@
-
+Universidad Nacional - Curso: Programación II - Profesor: Jonathan Morales Murillo
+------------------------------------
+------------------------------------
 Diseño de clases
 ------------------------------------
 El diseño general de las clases está organizado en los siguientes módulos principales 
@@ -8,7 +10,7 @@ El diseño general de las clases está organizado en los siguientes módulos pri
   - `Equipo` (abstracta) — `Equipo.h` / `Equipo.cpp`
   - `EquipoCritico` — `EquipoCritico.h` / `EquipoCritico.cpp`
   - `EquipoEstandar` — `EquipoEstandar.h` / `EquipoEstandar.cpp`
-  - `DefinirEquipo` — `DefinirEquipo.h` / `DefinirEquipo.cpp` (factory/constructor a partir de lectura)
+  - `DefinirEquipo` — `DefinirEquipo.h` / `DefinirEquipo.cpp` 
 
 - Incidencias (patrón Decorator)
   - `Incidencia` (abstracta) — `IncidenciaBase.h` / `IncidenciaBase.cpp`
@@ -37,6 +39,40 @@ Patrónes de diseño aplicados
 - Strategy: la selección de equipos a mantener (módulo `EleccionPrioridad`) se puede considerar una estrategia intercambiable; actualmente se implementa una 
 - estrategia por prioridad (fórmula obligatoria) y la infraestructura permite cambiar la política de selección si se desea (inyección de dependencia de una clase que 
 - implemente la política).
+
+------------------------------------
+Relaciones entre clases
+------------------------------------
+Herencia:
+- EquipoCritico y EquipoEstandar heredan de Equipo (abstracta).
+  Equipo define el comportamiento común: getPrioridad(), degradar(),
+  aplicaMantenimiento(), getTipo().
+
+- IncidenciaSeveridadAlta, IncidenciaSeveridadMedia, IncidenciaSeveridadBaja
+  heredan de DecoradorIncidencia, que a su vez hereda de Incidencia (abstracta).
+
+- ArchivoInvalidoException, FormatoInvalidoException,
+  OperacionInconsistenteException y MenorACeroException heredan de
+  InvalidoException, que hereda de runtime_error.
+
+Composición:
+- Equipo contiene un vector<Incidencia*>, es dueño de las incidencias
+  y las elimina en su destructor.
+
+Upcasting:
+- LectorArchivos crea objetos EquipoCritico* y EquipoEstandar* pero los
+  almacena en vector<Equipo*>. Todo el sistema trabaja polimórficamente
+  con Equipo*.
+
+Downcasting:
+- En Simulador, al mostrar los equipos atendidos se usa dynamic_cast<EquipoCritico*>
+  para acceder a generarAlerta(), comportamiento exclusivo de EquipoCritico.
+  Si el cast falla retorna nullptr y no se ejecuta la alerta.
+
+Dependencia mutua:
+- Equipo e Incidencia se referencian mutuamente. Resuelta con forward
+  declaration en ambos headers y los includes completos en los .cpp.
+
 ------------------------------------
 Fórmula de prioridad (RF4)
 ------------------------------------
@@ -52,7 +88,7 @@ Algoritmo propio de ordenamiento
 ------------------------------------
 El algoritmo de ordenamiento recae en `Ordenamiento.cpp`.
 
-Que funciona con un Merge Sort implementado sobre `vector<Equipo*>`. Justificación:
+Que funciona con un QuickSort implementado sobre `vector<Equipo*>`. Justificación:
 La implementación incluye:
 - Orden descendente por prioridad (mayor prioridad primero).
 - Para comparaciones iguales, se utiliza `criticidad` o `id` como criterio secundario para determinarlo.
@@ -63,7 +99,7 @@ Búsqueda optimizada
 Se implementó la búsqueda binaria en `BusquedaBinaria.cpp` para localizar equipos por `id`
 para ingresar sus incidencias leídas desde LectorArchivo desde el archivo equipos.txt.
 
----------------------------------------
+
 Manejo de excepciones personalizadas
 ---------------------------------------
 Se definieron excepciones específicas para los errores esperados:
@@ -97,6 +133,6 @@ La generación de reportes queda en `GeneradorReportes`. Se generan archivos de 
 
 Fecha: 28-04-2026
 
-Lucia y Jose Pablo Sánchez Ramírez
+Lucia Garay García y Jose Pablo Sánchez Ramírez
 — Proyecto Programación II - 2026
 
